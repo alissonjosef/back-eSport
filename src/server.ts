@@ -66,12 +66,14 @@ app.get("/games/:id/ads", async (req, res) => {
     },
   });
 
+
+
   return res.json(
     ads.map((ad) => {
       return {
         ...ad,
         weedDays: ad.weedDays.split(","),
-        hourStart: convertMinuteStringToHour(ad.hoursStart),
+        hoursStart: convertMinuteStringToHour(ad.hoursStart),
         hourEnd: convertMinuteStringToHour(ad.hourEnd),
       };
     })
